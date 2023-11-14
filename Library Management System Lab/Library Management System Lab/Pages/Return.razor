@@ -1,0 +1,91 @@
+﻿@page "/return"
+@using Library_Management_System_Lab.Data.models
+@inject Library_Management_System_Lab.Services.BorrowedBookService BorrowedBookService
+@inject Library_Management_System_Lab.Services.UserService UserService
+@inject Library_Management_System_Lab.Services.BookService BookService
+
+<h3>Return Book</h3>
+
+<p>Enter User ID and Book ID to return a book:</p>
+
+<div>
+    <label for="returnUserId">User ID:</label>
+    <input id="returnUserId" @bind="returnUserId" />
+</div>
+
+<div>
+    <label for="returnBookId">Book ID:</label>
+    <input id="returnBookId" @bind="returnBookId" />
+</div>
+
+<button @onclick="() => ReturnBookActions(returnBookId)" class="btn-return">Return</button>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p style="color: red;">@errorMessage</p>
+}
+
+<h3>Borrowed Book List</h3>
+
+@if (BorrowedBookService.GetBorrowedBookList().Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Borrower UserID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var borrowedBook in BorrowedBookService.GetBorrowedBookList())
+            {
+                <tr>
+                    <td>@borrowedBook.Id</td>
+                    <td>@borrowedBook.Title</td>
+                    <td>@borrowedBook.Author</td>
+                    <td>@borrowedBook.ISBN</td>
+                    <td>@borrowedBook.UserID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books are currently borrowed.</p>
+}
+
+@code {
+    private int returnUserId;
+    private int returnBookId;
+    private string errorMessage;
+
+    private void ReturnBookActions(int bookId)
+    {
+        var borrowedBook = BorrowedBookService.GetBorrowedBookById(bookId); //Get book by id
+
+        if (borrowedBook != null && borrowedBook.UserID == returnUserId) //If borrowed book exists, and the UserID = returnUserId
+        {
+            
+            var returnedBook = BookService.GetBookById(bookId); 
+            if (returnedBook != null) //If returned book exists
+            {
+                returnedBook.IsAvailable = true; //Set the availability to true to mark it as returned
+                BookService.UpdateBook(returnedBook); //Update books status
+            }
+
+            // Remove the book from the borrowed book list
+            BorrowedBookService.ReturnBook(bookId);
+            // Reset error message on successful return
+            errorMessage = null;
+        }
+        else
+        {
+            errorMessage = "Invalid User ID or Book ID for returning the book.";
+        }
+    }
+}

@@ -1,0 +1,113 @@
+﻿@page "/users"
+@using Library_Management_System_Lab.Data.models
+@inject Library_Management_System_Lab.Services.UserService UserService
+
+
+<h3>Manage Users</h3>
+
+<form>
+    <div>
+        <label>Name:</label>
+        <input type="text" @bind="newUser.Name" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" @bind="newUser.Email" />
+    </div>
+
+    <button @onclick="AddUser">Add User</button>
+</form>
+
+<h3>User List</h3>
+
+@if (userList.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in userList)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <button @onclick="() => EditUser(user.Id)" class="btn-edit">Edit</button>
+                        <button @onclick="() => DeleteUser(user.Id)" class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No users added yet.</p>
+}
+
+
+@if (isEditing)
+{
+    <h3>Edit User</h3>
+    <form>
+        <div>
+            <label>Name:</label>
+            <input type="text" @bind="editedUser.Name" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="text" @bind="editedUser.Email" />
+        </div>
+
+        <button @onclick="UpdateUser">Update User</button>
+    </form>
+}
+
+@code {
+    private List<User> userList => UserService.GetUserList();
+    private User newUser = new User();
+    private User editedUser = new User();
+    private bool isEditing = false;
+
+    private void AddUser()
+    {
+        UserService.AddUser(new User
+            {
+                Name = newUser.Name,
+                Email = newUser.Email
+            });
+
+        newUser = new User();
+    }
+
+    private void EditUser(int userId)
+    {
+        editedUser = UserService.GetUserById(userId);
+
+        if (editedUser != null)
+        {
+            isEditing = true;
+        }
+    }
+
+    private void UpdateUser()
+    {
+        UserService.UpdateUser(editedUser);
+
+        editedUser = new User();
+        isEditing = false;
+    }
+
+    private void DeleteUser(int userId)
+    {
+        UserService.DeleteUser(userId);
+    }
+}
+

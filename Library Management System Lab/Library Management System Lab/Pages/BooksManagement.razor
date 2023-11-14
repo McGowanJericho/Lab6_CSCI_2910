@@ -1,0 +1,125 @@
+﻿
+@page "/books"
+@using Library_Management_System_Lab.Data.models
+@inject Library_Management_System_Lab.Services.BookService BookService
+
+
+<h3>Manage Books</h3>
+
+<form>
+    <div>
+        <label>Title:</label>
+        <input type="text" @bind="newBook.Title" />
+    </div>
+    <div>
+        <label>Author:</label>
+        <input type="text" @bind="newBook.Author" />
+    </div>
+    <div>
+        <label>ISBN:</label>
+        <input type="text" @bind="newBook.ISBN" />
+    </div>
+
+    <button @onclick="AddBook">Add Book</button>
+</form>
+
+<h3>Book List</h3>
+
+@if (bookList.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in bookList)
+            {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.ISBN</td>
+                    <td>
+                        <button @onclick="() => EditBook(book.Id)" class="btn-edit">Edit</button>
+                        <button @onclick="() => DeleteBook(book.Id)" class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books added yet.</p>
+}
+
+@if (isEditing)
+{
+    <h3>Edit Book</h3>
+    <form>
+        <div>
+            <label>Title:</label>
+            <input type="text" @bind="editedBook.Title" />
+        </div>
+        <div>
+            <label>Author:</label>
+            <input type="text" @bind="editedBook.Author" />
+        </div>
+        <div>
+            <label>ISBN:</label>
+            <input type="text" @bind="editedBook.ISBN" />
+        </div>
+
+        <button @onclick="UpdateBook">Update Book</button>
+    </form>
+}
+
+@code {
+    private List<Book> bookList => BookService.GetBookList();
+    private Book newBook = new Book();
+    private Book editedBook = new Book();
+    private bool isEditing = false;
+
+    private void AddBook()
+    {
+        
+        newBook.Id = bookList.Count + 1; //Assign an ID to the book 
+        BookService.AddBook(newBook); //Add to the BookService
+
+       
+        newBook = new Book(); //Clear form
+    }
+
+    private void EditBook(int bookId)
+    {
+        
+        editedBook = BookService.GetBookById(bookId);
+
+        if (editedBook != null)
+        {
+            isEditing = true;
+        }
+    }
+
+    private void UpdateBook()
+    {
+       
+        BookService.UpdateBook(editedBook); //Update book.
+
+        
+        editedBook = new Book();
+        isEditing = false;
+    }
+
+    private void DeleteBook(int bookId) //Remove book
+    {
+        
+        BookService.DeleteBook(bookId);
+    }
+}

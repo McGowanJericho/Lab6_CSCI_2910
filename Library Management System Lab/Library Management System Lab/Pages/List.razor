@@ -1,0 +1,41 @@
+﻿@page "/list"
+@using Library_Management_System_Lab.Data.models
+@using Library_Management_System_Lab.Services;
+@inject Library_Management_System_Lab.Services.BorrowedBookService BorrowedBookService
+<h3>List Borrowed Books</h3>
+
+
+<div>
+ 
+
+    @if (BorrowedBookService.GetBorrowedBookList().Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Borrower UserID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in BorrowedBookService.GetBorrowedBookList())
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.ISBN</td>
+                        <td>@book.UserID</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No borrowed books available.</p>
+    }
+</div>

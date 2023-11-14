@@ -1,0 +1,31 @@
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\appsettings.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.staticwebassets.runtime.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.exe
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.deps.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.runtimeconfig.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.dll
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\bin\Debug\net7.0\Library Management System Lab.pdb
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.AssemblyInfoInputs.cache
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.AssemblyInfo.cs
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.csproj.CoreCompileInputs.cache
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.RazorAssemblyInfo.cache
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.RazorAssemblyInfo.cs
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets\msbuild.Library Management System Lab.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets\msbuild.build.Library Management System Lab.props
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Library Management System Lab.props
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Library Management System Lab.props
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\scopedcss\bundle\Library Management System Lab.styles.css
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\scopedcss\projectbundle\Library Management System Lab.bundle.scp.css
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.dll
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\refint\Library Management System Lab.dll
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.pdb
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\Library Management System Lab.genruntimeconfig.cache
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\ref\Library Management System Lab.dll
+C:\Users\Jericho McGowan\Downloads\Library Management System Lab\Library Management System Lab\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
